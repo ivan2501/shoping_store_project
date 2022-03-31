@@ -1,0 +1,29 @@
+{% extends "shopping_store_app/base.html" %}
+
+
+{% block content%}
+<div>
+    <table style="width: 100%; border: 2px solid blanchedalmond;">
+        <h1 style="color: rgb(172, 0, 0); text-align: center;">Products</h1>
+            <tr>
+                <th>Name of the product</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Size</th>
+                <th>Price</th>
+            </tr>
+            {% for item in Products %} 
+                <tr>
+                    <td>{{item.name}}</td>
+                    <td>{{item.product_category}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>{{item.size}}</td>
+                    <td>{{item.price}}</td>
+                </tr>
+            {% endfor%}
+    </table>
+</div>
+
+
+
+{% endblock%}

@@ -1,0 +1,27 @@
+{% extends "shopping_store_app/base.html" %}
+
+
+
+{% block content %}
+<div>
+    <table style="width: 100%; border: 2px solid blanchedalmond;">
+        <h1 style="color: rgb(172, 0, 0); text-align: center;">Customers</h1>
+            <tr>
+                <th>First name</th>
+                <th>Last Name</th>
+                <th>Contact</th>
+                <th>Delivery address</th>
+                <th>Created</th>
+            </tr>
+            {% for user in Users %} 
+                <tr>
+                    <td>{{user.first_name}}</td>
+                    <td>{{user.last_name}}</td>
+                    <td>{{user.your_email}}</td>
+                    <td>{{user.delivery_address}}</td>
+                    <td>{{user.date_created |date:"jS F Y H:i"}}</td>
+                </tr>
+            {% endfor%}
+    </table>
+</div>
+{% endblock %}

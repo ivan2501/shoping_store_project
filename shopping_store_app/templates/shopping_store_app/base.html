@@ -1,0 +1,56 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% if title %}
+            <title>{{ title }}</title>
+        {% elif heading %}
+            <title>{{ heading }}</title>
+        {% else %}
+            <title>My Blog Page</title>
+        {% endif %}
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">>
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'main' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'customer' %}">Customer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'products' %}">Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'customers-list' %}">Customers-API</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'products-list' %}">Products-API</a>
+        </li>
+      </ul>
+    </nav>
+
+    {% block content %}
+    <div class="container">
+      <h1 style = "text-align: center; color: rgb(136, 0, 0);">Write YOUR informations</h1>
+      <form action="" method="POST">
+        {% csrf_token%}
+        {{ form }}
+        {{ add }}
+      <input type="submit" name = "Submit">
+      </form>
+    </div>
+
+    
+
+    {% endblock content%}
+  </body>
+</html>
